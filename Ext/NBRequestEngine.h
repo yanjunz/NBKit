@@ -40,6 +40,12 @@ typedef ASIHTTPRequest NBRequest;
 - (NBRequest *) issueRequestForURL: (NSString *)url
                           delegate: (id<ASIHTTPRequestDelegate>) delegate
                       asynchronous: (BOOL) asynchronous
-                    objectsAndKeys: (NSDictionary *)parameters;
+                        parameters: (NSDictionary *)parameters;
+
+- (NBRequest *) issueRequestForURL: (NSString *)url
+                          delegate: (id<ASIHTTPRequestDelegate>) delegate
+                      asynchronous: (BOOL) asynchronous
+                        parameters: (NSDictionary *)parameters
+                    requestHeaders: (NSDictionary *)requestHeaders;
 
 @end

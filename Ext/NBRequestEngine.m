@@ -144,15 +144,15 @@ NSString *const NBRequestServiceKey    = @"NBRequestServiceKey";
     return [self issueRequestForURL:url
                            delegate:nil
                        asynchronous:NO
-                     objectsAndKeys:parameters];
+                         parameters:parameters];
 }
 
 - (NBRequest *) issueRequestForURL: (NSString *)url
-                    objectsAndKeys: (NSDictionary *)parameters
+                        parameters: (NSDictionary *)parameters
                         completion:(ASIBasicBlock)aCompletionBlock
                            failure:(ASIBasicBlock)aFaiedBlock
 {
-    NBRequest *request = [self issueRequestForURL:url delegate:nil asynchronous:YES objectsAndKeys:parameters];
+    NBRequest *request = [self issueRequestForURL:url delegate:nil asynchronous:YES parameters:parameters];
     [request setCompletionBlock:aCompletionBlock];
     [request setFailedBlock:aFaiedBlock];
     return request;
@@ -184,13 +184,19 @@ NSString *const NBRequestServiceKey    = @"NBRequestServiceKey";
     return [self issueRequestForURL:url
                            delegate:delegate
                        asynchronous:YES
-                     objectsAndKeys:parameters];
+                         parameters:parameters];
+}
+
+- (NBRequest *)issueRequestForURL:(NSString *)url delegate:(id<ASIHTTPRequestDelegate>)delegate asynchronous:(BOOL)asynchronous parameters:(NSDictionary *)parameters
+{
+    return [self issueRequestForURL:url delegate:delegate asynchronous:asynchronous parameters:parameters requestHeaders:nil];
 }
 
 - (NBRequest *) issueRequestForURL: (NSString *)url
-                           delegate: (id<ASIHTTPRequestDelegate>) delegate
-                       asynchronous: (BOOL) asynchronous
-                     objectsAndKeys: (NSDictionary *)parameters {
+                          delegate: (id<ASIHTTPRequestDelegate>) delegate
+                      asynchronous: (BOOL) asynchronous
+                        parameters: (NSDictionary *)parameters
+                    requestHeaders: (NSDictionary *)requestHeaders{
     NBRequest *request     = nil;
     NSURL *requestURL       = nil;
     NSString *urlString     = nil;
@@ -220,6 +226,10 @@ NSString *const NBRequestServiceKey    = @"NBRequestServiceKey";
             [formRequest setPostValue:object forKey:key];
         }];
         request                         = (NBRequest *)formRequest;
+    }
+    
+    for (NSString *key in requestHeaders.allKeys) {
+        [request addRequestHeader:key value:requestHeaders[key]];
     }
     
     request.delegate        = delegate;
