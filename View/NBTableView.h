@@ -5,7 +5,7 @@
 //  Created by zhuangyanjun on 29/3/13.
 //  Copyright (c) 2013年 jiyue.cc. All rights reserved.
 //
-
+#ifdef NB_FEATURE_PullRefresh_PushLoad
 #import <UIKit/UIKit.h>
 #import "EGORefreshTableHeaderView.h"
 #import "NBPushLoadMoreTableFooterView.h"
@@ -29,3 +29,5 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate;
 @end
+
+#endif // NB_FEATURE_PullRefresh_PushLoad

@@ -5,7 +5,7 @@
 //  Created by zhuangyanjun on 29/3/13.
 //  Copyright (c) 2013年 jiyue.cc. All rights reserved.
 //
-
+#ifdef NB_FEATURE_PullRefresh_PushLoad
 #import "NBTableView.h"
 
 #define kLoadMoreFooterHeight 65.0f
@@ -61,7 +61,7 @@
 {
     if (_loadMoreFooterView == nil) {
         CGRect rect = self.bounds;
-        rect.origin.y = rect.size.height + kLoadMoreFooterHeight;
+        rect.origin.y = rect.size.height;
         rect.size.height = kLoadMoreFooterHeight;
         _loadMoreFooterView = [[NBPushLoadMoreTableFooterView alloc] initWithFrame:rect];
         _loadMoreFooterView.delegate = self;
@@ -74,7 +74,7 @@
     CGFloat height = self.contentSize.height;
     if (_loadMoreFooterView) {
         CGRect frame = _loadMoreFooterView.frame;
-        frame.origin.y = height + kLoadMoreFooterHeight;
+        frame.origin.y = height;
         _loadMoreFooterView.frame = frame;
     }
 }
@@ -82,6 +82,12 @@
 - (void)reloadData
 {
     [super reloadData];
+    [self updateLoadMoreFooterView];
+}
+
+- (void)reloadRowsAtIndexPaths:(NSArray *)indexPaths withRowAnimation:(UITableViewRowAnimation)animation
+{
+    [super reloadRowsAtIndexPaths:indexPaths withRowAnimation:animation];
     [self updateLoadMoreFooterView];
 }
 
@@ -113,6 +119,10 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self.refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     [self.loadMoreFooterView loadMoreScrollViewDidScroll:scrollView];
+
+    NBDebugShowFrame(@"footer ", self.loadMoreFooterView.frame);
+    NBDebugShowFrame(@"tableView", self.frame);
+    NBDebugShowSize(@"contentSize ", self.contentSize);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
@@ -150,3 +160,4 @@
 }
 
 @end
+#endif // NB_FEATURE_PullRefresh_PushLoad
