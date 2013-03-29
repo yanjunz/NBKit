@@ -20,6 +20,7 @@
 
 // View
 #import "NBSlideScrollView.h"
+#import "NBTableView.h"
 
 // Controllers
 #import "NBBaseViewController.h"
