@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 Xu Hui. All rights reserved.
 //
 
+#ifdef NB_FEATURE_JTObjectMapping
+
 #import "NBBaseType.h"
 #import "NSObject+JTObjectMapping.h"
 
@@ -13,3 +15,6 @@
 + (id)objectFromJSONObject:(id<JTValidJSONResponse>)object;
 + (id <JTValidMappingKey>)mappingWithKey:(NSString *)key;
 @end
+
+
+#endif // NB_FEATURE_JTObjectMapping

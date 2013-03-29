@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 Xu Hui. All rights reserved.
 //
 
+#ifdef NB_FEATURE_JTObjectMapping
+
 #import "NBBaseType+JTObjectMapping.h"
 
 @implementation NBBaseType (JTObjectMapping)
@@ -22,3 +24,5 @@
 }
 
 @end
+
+#endif // NB_FEATURE_JTObjectMapping

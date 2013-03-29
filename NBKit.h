@@ -9,9 +9,14 @@
 #ifndef NBKit_NBKit_h
 #define NBKit_NBKit_h
 
+#import "NBFeatures.h"
 #import "NBGlobal.h"
 #import "NBBaseType.h"
 #import "NBDebug.h"
+
+// Addtions
+#import "NSDictionary+URLQuery.h"
+#import "NSObject+Block.h"
 
 // View
 #import "NBSlideScrollView.h"
