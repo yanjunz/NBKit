@@ -10,6 +10,7 @@
 
 // Global Functions
 BOOL NBIsPad();
+BOOL NBIsDevice4Inches();
 int NBSysMajorVersion();
 int NBSysMinorVersion();
 

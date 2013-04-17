@@ -18,6 +18,11 @@ BOOL NBIsPad() {
 #endif
 }
 
+BOOL NBIsDevice4Inches()
+{
+    return [UIScreen mainScreen].applicationFrame.size.height >= 568.0f;
+}
+
 int NBSysMajorVersion()
 {
     NSString *ver = [UIDevice currentDevice].systemVersion;
