@@ -20,7 +20,7 @@ BOOL NBIsPad() {
 
 BOOL NBIsDevice4Inches()
 {
-    return [UIScreen mainScreen].applicationFrame.size.height >= 568.0f;
+    return [UIScreen mainScreen].bounds.size.height >= 568.0f;
 }
 
 int NBSysMajorVersion()
