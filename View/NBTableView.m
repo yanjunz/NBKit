@@ -120,9 +120,9 @@
     [self.refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
     [self.loadMoreFooterView loadMoreScrollViewDidScroll:scrollView];
 
-    NBDebugShowFrame(@"footer ", self.loadMoreFooterView.frame);
-    NBDebugShowFrame(@"tableView", self.frame);
-    NBDebugShowSize(@"contentSize ", self.contentSize);
+//    NBDebugShowFrame(@"footer ", self.loadMoreFooterView.frame);
+//    NBDebugShowFrame(@"tableView", self.frame);
+//    NBDebugShowSize(@"contentSize ", self.contentSize);
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
