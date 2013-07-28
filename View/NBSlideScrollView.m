@@ -11,10 +11,6 @@
 @implementation NBReusableSlideCell
 @synthesize reusableIndentifier = _reusableIndentifier;
 
-- (void)dealloc
-{
-    self.reusableIndentifier = nil;
-}
 
 @end
 
@@ -48,11 +44,6 @@
     _firstLayout = YES;
 }
 
-- (void)dealloc
-{
-    self.scrollView     = nil;
-    self.views          = nil;
-}
 
 - (void)layoutSubviews
 {

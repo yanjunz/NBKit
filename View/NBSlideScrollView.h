@@ -29,7 +29,7 @@
 @end
 
 @interface NBSlideScrollView : UIView<UIScrollViewDelegate>
-@property (nonatomic, assign) IBOutlet id<NBSlideScrollViewDelegate> delegate;
+@property (nonatomic, weak) IBOutlet id<NBSlideScrollViewDelegate> delegate;
 @property (nonatomic) int firstPageIndex;
 @property (nonatomic, readonly) NSInteger currentPage;
 

@@ -15,9 +15,9 @@ typedef ASIHTTPRequest NBRequest;
 
 @interface NBRequestEngine : NSObject<ASIHTTPRequestDelegate>
 
-@property (nonatomic, retain) NSString          *accessToken;
-@property (nonatomic, retain) NSMutableArray    *deferredRequests;
-@property (nonatomic, retain, readonly) NSOperationQueue  *requestQueue;
+@property (nonatomic, strong) NSString          *accessToken;
+@property (nonatomic, strong) NSMutableArray    *deferredRequests;
+@property (nonatomic, strong, readonly) NSOperationQueue  *requestQueue;
 
 + (NBRequestEngine *) engine;
 

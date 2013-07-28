@@ -16,7 +16,7 @@ NSString *const NBRequestHTTPMethodKey = @"NBRequestHTTPMethodKey";
 NSString *const NBRequestServiceKey    = @"NBRequestServiceKey";
 
 @interface NBRequestEngine()
-@property (nonatomic, retain) NBRequest *authRequest;
+@property (nonatomic, strong) NBRequest *authRequest;
 @property (nonatomic, assign) BOOL authenticating;
 
 @end
@@ -61,10 +61,6 @@ NSString *const NBRequestServiceKey    = @"NBRequestServiceKey";
     [self.authRequest cancel];
 //    [_requestQueue release];
     
-    _requestQueue           = nil;
-    self.deferredRequests   = nil;
-    self.authRequest        = nil;
-    self.accessToken        = nil;
 //    [super dealloc];
 }
 
