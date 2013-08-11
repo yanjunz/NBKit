@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ASIHTTPRequest.h"
 
-NSString *const NBRequestHTTPMethodKey;
+extern NSString *const NBRequestHTTPMethodKey;
 
 typedef ASIHTTPRequest NBRequest;
 
